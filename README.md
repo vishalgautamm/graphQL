@@ -1,38 +1,37 @@
-## Introduction
-### Structure of the course
-* Why does GraphQL exist
-* What is GraphQL
+# Introduction
+## Structure of the course
+* What is GraphQL and Why does it exist
   * What does it do for us
 * How do we use GraphQL
   * How to make use of it in our backend
   * how to wire it to our React fronted
   
-#### *Before we start talking about GraphQL, we need to understand RESTful routing and its limitations*
+*Before we start talking about GraphQL, we need to understand RESTful routing and its limitations*
 
-#### REST-ful Routing
+### REST-ful Routing
 * Given a collection of records on a server, there should be a uniform URL and HTTP results method used to utilize that collection of records
 * Sum set of conventions, used in Web Dev for minipuaoting a collection of data, hosted on a server.
 * Common rules around the HTTP requests and URL, used for creating, reading , updating and deleting data sitting on the data
 
-#### Example:
+### Example:
 * Lets assume we are creating a UI for a blog webite, where users can add a blog, edit it, read it and then delete it
 * RESTful routing when applied to blog example - what type of HTTP request is used and what type of URL we send it to when we want to create, edit read and delete a post
 
-### When we start to nest data, things get really weird.
+##When we start to nest data, things get really weird.
 
 #### Restful Conventions
 * is talking about very common URLs and HTTP method types that we use for these very common operations of manipulating data.
 * They are not a  hard coded set of rules - they are used conventions that we tend to see in different frameworks and in different languages
 * These rules start to break down once you start to get to a very heavily nested or heavily related data.
-A more complex example:
+
+### A more complex example:
 * It might look very easy and straight forward, but there is a hidden complexity here
 * In the example below, I have a list of users, the company that they work at and their title
 * Lets image where the data is coming from. We have four of them
-    * UserImage
-    * UserName
-    * CompanyName and
-    * PositionName
-    
+  * UserImage
+  * UserName
+  * CompanyName and
+  * PositionName    
 * How might we store this data in our database (whether SQL or noSQL) - one option to create a User model and every user has a name, image company_id and position_name 
 * It may not be the best approach since - it is fairly hard to get the list of all company_names and the users who work in that company (figure below)
 
@@ -79,6 +78,6 @@ THIS is what **GraphQL** is looking to fix.
 #GraphQL
 
 ##What is GraphQL
-*A Graph is a data structure that contains nodes, and relations between each of these notes called edges. This is the graph, which GraphQL is referring to
-*Understanding how our information fits into a graph data structure like this is key to understanding how graphQL works
-*One thing about graph structure: not saying that we are going to change how our data is being stored in the DB. We can still use MongoDB or postgreSQL to store data. We are just looking at this diagram to visualize. how all of our data is connected together via all the different relations 
+* A Graph is a data structure that contains nodes, and relations between each of these notes called edges. This is the graph, which GraphQL is referring to
+* Understanding how our information fits into a graph data structure like this is key to understanding how graphQL works
+* One thing about graph structure: not saying that we are going to change how our data is being stored in the DB. We can still use MongoDB or postgreSQL to store data. We are just looking at this diagram to visualize. how all of our data is connected together via all the different relations 
