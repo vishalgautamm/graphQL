@@ -75,3 +75,10 @@ A more complex example:
 THIS is what **GraphQL** is looking to fix.
 * it wants to fix some real bing inconsistent around RESTful routing 
 * And also tackle big issues around over serving data
+
+#GraphQL
+
+##What is GraphQL
+*A Graph is a data structure that contains nodes, and relations between each of these notes called edges. This is the graph, which GraphQL is referring to
+*Understanding how our information fits into a graph data structure like this is key to understanding how graphQL works
+*One thing about graph structure: not saying that we are going to change how our data is being stored in the DB. We can still use MongoDB or postgreSQL to store data. We are just looking at this diagram to visualize. how all of our data is connected together via all the different relations 
