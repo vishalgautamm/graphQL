@@ -4,23 +4,31 @@ const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLInt,
-  GraphQLSchema
+  GraphQLSchema,
+  GraphQLList
 } = graphql;
 
 //important to define Company Type above User Type
 const CompanyType = new GraphQLObjectType({
   name: 'Company',
-  fields: {
+  fields: () => ({
     id: { type: GraphQLString },
     name: { type: GraphQLString },
-    description: { type: GraphQLString }
-
-  }
+    description: { type: GraphQLString },
+    users: {
+      // GraphQLList - when we go com Company to User, it tells GraphQL that we will have a multiple users associated that one company
+      type: new GraphQLList( UserType ),
+      resolve(parentValue, args) {
+        return axios.get(`http://localhost:3000/companies/${parentValue.id}/users`)
+          .then(res => res.data);
+      }
+    }
+  })
 })
 
 const UserType = new GraphQLObjectType({
   name: 'User',
-  fields: {
+  fields: () => ({
     id: { type: GraphQLString },
     firstName: { type: GraphQLString },
     age: { type: GraphQLInt },
@@ -28,10 +36,10 @@ const UserType = new GraphQLObjectType({
       type: CompanyType,
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/companies/${parentValue.companyId}`)
-          .then(resp => resp.data);
+          .then(res => res.data);
       }
     }
-  }
+  })
 });
 
 // Root Query
@@ -40,9 +48,17 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     user: {
       type: UserType,
-      args: {id: {type: GraphQLString}},
+      args: {id: {type: GraphQLString} },
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/users/${args.id}`)
+          .then(resp => resp.data);
+      }
+    },
+    company: {
+      type: CompanyType,
+      args: {id: { type: GraphQLString } },
+      resolve(parentValue, args) {
+        return axios.get(`http://localhost:3000/companies/${args.id}`)
           .then(resp => resp.data);
       }
     }
