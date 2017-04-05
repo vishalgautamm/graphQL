@@ -75,9 +75,16 @@ THIS is what **GraphQL** is looking to fix.
 * it wants to fix some real bing inconsistent around RESTful routing 
 * And also tackle big issues around over serving data
 
-#GraphQL
+# GraphQL
 
-##What is GraphQL
+## What is GraphQL
 * A Graph is a data structure that contains nodes, and relations between each of these notes called edges. This is the graph, which GraphQL is referring to
 * Understanding how our information fits into a graph data structure like this is key to understanding how graphQL works
-* One thing about graph structure: not saying that we are going to change how our data is being stored in the DB. We can still use MongoDB or postgreSQL to store data. We are just looking at this diagram to visualize. how all of our data is connected together via all the different relations 
+* One thing about graph structure: not saying that we are going to change how our data is being stored in the DB. We can still use MongoDB or postgreSQL to store data. We are just looking at this diagram to visualize. how all of our data is connected together via all the different relations
+
+### Goal: Create a GraphQL Application
+
+### Overall Architecture of the Application
+* First make an server instance using express
+* Hook it up to a data store of some kind 
+* Test the queries using pre-built application called graphiql (GraphiQL is a prebuilt app by the GraphQL team - and it is made solely for development purposes to get a better sense of how the graphQL works and how we can execute queries with it)
