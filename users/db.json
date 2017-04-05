@@ -1,6 +1,11 @@
 {
   "users": [
-    { "id": "23", "firstName": "Bill", "age": 23},
-    { "id": "40", "firstName": "Clara", "age": 24}
+    { "id": "30", "firstName": "Bill", "age": 23, "companyId": "100" },
+    { "id": "40", "firstName": "Clara", "age": 24, "companyId": "100" },
+    { "id": "50", "firstName": "John", "age": 26, "companyId": "200" }
+  ],
+  "companies": [
+    { "id": "100", "name": "Apple Inc", "description": "Computer Manufacturing Company" },
+    { "id": "200", "name": "Facebook", "description": "Social media giant" }
   ]
 }
