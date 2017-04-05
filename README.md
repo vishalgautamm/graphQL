@@ -2,7 +2,7 @@
 ### Structure of the course
 * Why does GraphQL exist
 * What is GraphQL
-  * what does it do for us
+  * What does it do for us
 * How do we use GraphQL
   * How to make use of it in our backend
   * how to wire it to our React fronted
@@ -21,7 +21,7 @@
 ### When we start to nest data, things get really weird.
 
 #### Restful Conventions
-* is talking about very common URLs and HTTP method types that we use for these very common operations of manipulating data
+* is talking about very common URLs and HTTP method types that we use for these very common operations of manipulating data.
 * They are not a  hard coded set of rules - they are used conventions that we tend to see in different frameworks and in different languages
 * These rules start to break down once you start to get to a very heavily nested or heavily related data.
 A more complex example:
@@ -70,7 +70,7 @@ A more complex example:
 * If we made a request like this, and we got back a list of all the companies that are associated with our friends, by default, we might return the entire company model might have all the unnecessary datas that we don’t really need. Datas like stock ticker, employee count, year that company was founded etc… all these datas that we don’t really care about 
 * We are over serving the amount of data to the client.
 
-AKA RESTful routing with highly relational data tends  to get quite challenging. 
+**AKA RESTful routing with highly relational data tends  to get quite challenging.**
 
 THIS is what **GraphQL** is looking to fix.
 * it wants to fix some real bing inconsistent around RESTful routing 
