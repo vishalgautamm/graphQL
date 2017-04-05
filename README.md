@@ -72,6 +72,6 @@ A more complex example:
 
 AKA RESTful routing with highly relational data tends  to get quite challenging. 
 
-THIS is what ** GraphQL ** is looking to fix.
+THIS is what **GraphQL** is looking to fix.
 * it wants to fix some real bing inconsistent around RESTful routing 
 * And also tackle big issues around over serving data
