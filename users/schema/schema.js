@@ -5,7 +5,8 @@ const {
   GraphQLString,
   GraphQLInt,
   GraphQLSchema,
-  GraphQLList
+  GraphQLList,
+  GraphQLNonNull
 } = graphql;
 
 //important to define Company Type above User Type
@@ -51,7 +52,7 @@ const RootQuery = new GraphQLObjectType({
       args: {id: {type: GraphQLString} },
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/users/${args.id}`)
-          .then(resp => resp.data);
+          .then(res => res.data);
       }
     },
     company: {
@@ -59,16 +60,16 @@ const RootQuery = new GraphQLObjectType({
       args: {id: { type: GraphQLString } },
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/companies/${args.id}`)
-          .then(resp => resp.data);
+          .then(res => res.data);
       }
     }
   }
 });
 
 /*
-Explanation:
-- You can ask me (the RootQuery) about users in the applicaiton
-- If you give me (args) the id of the user that you are looking for, I will return a user (UserType) back to you
+- Explanation:
+  - You can ask me (the RootQuery) about users in the applicaiton
+  - If you give me (args) the id of the user that you are looking for, I will return a user (UserType) back to you
 - Resolve function
   - takes in two arguments - parentValue, args
   - Purpose: if you are looking for a User with an ID of 23, okay I will do my best to find it
@@ -76,8 +77,38 @@ Explanation:
   - parentValue: never really used, ignore it
 */
 
-// GraphQLSchema -> takes in a RootQuery and returns a GraphQLSchema instance
+// Mutation
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addUser: {
+      type: UserType,
+      args: {
+        firstName: { type: new GraphQLNonNull(GraphQLString) },
+        age: { type: new GraphQLNonNull(GraphQLInt) },
+        companyId: { type: GraphQLString }
+      },
+      resolve(parentValue, { firstName, age }) {
+        return axios.post('http://localhost:3000/users', { firstName, age })
+          .then(res => res.data);
+      }
+    },
+    deleteUser: {
+      type: UserType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      resolve(parentValue, { id }) {
+        return axios.delete(`http://localhost:3000/users/${id}`)
+          .then(res => res.data);
+      }
+    }
+  }
+})
+
+// GraphQLSchema -> takes in a RootQuery + Mutation and returns a GraphQLSchema instance
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
+  mutation
 });
 
