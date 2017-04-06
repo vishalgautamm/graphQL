@@ -1,15 +1,9 @@
 {
   "users": [
     {
-      "id": "30",
-      "firstName": "Bill",
-      "age": 23,
-      "companyId": "100"
-    },
-    {
       "id": "40",
-      "firstName": "Clara",
-      "age": 24,
+      "firstName": "Claire",
+      "age": 25,
       "companyId": "100"
     },
     {
@@ -21,12 +15,8 @@
     {
       "firstName": "Vishal",
       "age": 26,
-      "id": "rkSg0NEax"
-    },
-    {
-      "firstName": "Jane Doe",
-      "age": 33,
-      "id": "B1uYyHVae"
+      "id": "rkSg0NEax",
+      "companyId": "100"
     }
   ],
   "companies": [
