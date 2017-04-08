@@ -48,7 +48,7 @@
 * For getting all these particular companies and positions, we could have URL like:
     * for friend with Id: 1, we could do /users/1/companies - and that would give me company with id: 5 and we can do the same thing for their position. And then we repeat the same process of their other friends as well
     * Downside: we would be making a ton of separate HTTP request to our backend server to get this data.
-    * That would end up being a lot of separate requests, just to get this data, that other wise looks like it would be simple to get for mock up that we looked up earlier
+    * That would end up being a lot of separate requests, just to get this data, that other wise looks like it would be simple to get for mock up that we looked up earlier.
 
 ### Option B
 * We would do like /users/23/friends/companies - so in theory that would give us all the companies and all the positions related to user with ID: 23’s friends
